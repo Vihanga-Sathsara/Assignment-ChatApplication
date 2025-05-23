@@ -3,6 +3,7 @@ package lk.ijse;
 import java.io.*;
 import java.net.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ServerIntializer {
     private static DataInputStream dataInputStream;
@@ -26,15 +27,15 @@ public class ServerIntializer {
 
                     switch (type.toUpperCase()) {
                         case "TIME":
-                            dataOutputStream.writeUTF(LocalDate.now().toString());
+                            dataOutputStream.writeUTF(LocalTime.now().toString());
                             break;
                         case "DATE":
-                            dataOutputStream.writeUTF("Server Date: " + LocalDate.now());
+                            dataOutputStream.writeUTF("Server: " + LocalDate.now());
                             break;
                         case "UPTIME":
-                            dataOutputStream.writeUTF("KeepAlive: " + socket.getKeepAlive());
+                            dataOutputStream.writeUTF("server: " + socket.getKeepAlive());
                             break;
-                        case "BYE":
+                        case "EXIT":
                             dataOutputStream.writeUTF("Server: BYE!!");
                             socket.close();
                             break;
