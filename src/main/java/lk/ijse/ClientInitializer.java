@@ -24,9 +24,6 @@ public class ClientInitializer {
                     String response = dis.readUTF();
                     System.out.println("Server: " + response);
 
-                    if (command.equalsIgnoreCase("BYE")) {
-                        socket.close();
-                    }
                 }
 
             } catch (Exception e) {
